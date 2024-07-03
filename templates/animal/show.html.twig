@@ -1,0 +1,38 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Animal{% endblock %}
+
+{% block body %}
+    <h1>Animal</h1>
+
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ animal.id }}</td>
+            </tr>
+            <tr>
+                <th>Name</th>
+                <td>{{ animal.name }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <hr>
+    <div class="row bg-info">
+        <div class="col-3"></div>
+        <div class="col-6">{{ include('photo/_form.html.twig') }}</div>
+
+    </div>
+    
+
+    <hr>
+  
+        {% for photo in animal.photos %}
+        
+        <img src="{{ asset('uploads/photos/' ~ photo.name) }}" alt="image" width="95"/>
+        <br>
+        {% endfor %}
+   
+    
+{% endblock %}
